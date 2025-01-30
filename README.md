@@ -29,17 +29,12 @@ Este projeto é um sistema para gerenciar e calcular a melhor rota entre cidades
    ```sh
    git clone https://github.com/jungandrei/Lumini.git
    cd Lumini
-
 2. **Compilar o projeto**
     ```sh
     dotnet build
-
 3. **Compilar o projeto**
     ```sh
     dotnet run --project src/Presentation
-
-
-
 ## 📖 Exemplo de Uso
 
 ### 🛠️ **1. Registrar uma nova rota**
@@ -163,8 +158,47 @@ Essas decisões foram adotadas para garantir **escalabilidade, flexibilidade e q
 ###  **Persistência**
 Atualmente, a persistência das rotas é realizada por meio de **arquivos de texto (`routes.txt`)**, garantindo uma solução simples e funcional. No entanto, a aplicação foi estruturada para que, caso necessário, seja fácil **substituir a persistência por um banco de dados relacional ou NoSQL**, como **SQL Server, PostgreSQL ou MongoDB**, apenas implementando uma nova versão do `IRouteRepository`.
 
-Essas decisões foram adotadas para garantir **escalabilidade, flexibilidade e qualidade do código**. 🚀
+Essas decisões foram adotadas para garantir **escalabilidade, flexibilidade e qualidade do código**.
 
+## 📄 Como Criar um Documento de Rotas
+### O sistema utiliza um arquivo de texto (routes.txt) para armazenar as rotas disponíveis. Esse arquivo deve estar localizado no caminho:
+
+```bash
+C:\Users\User\Downloads\routes.txt
+```
+### Cada linha do arquivo representa uma rota e deve seguir o seguinte formato:
+
+```bash
+Origem,Destino,Custo
+GRU,BRC,10
+BRC,SCL,5
+GRU,CDG,75
+```
+
+## 📝 Passo a Passo para Criar um Documento de Rotas
+- **Abra o Bloco de Notas (ou outro editor de texto).**
+- **Adicione as rotas seguindo o formato: Origem,Destino,Custo**
+    - **A primeira linha pode ser usada como cabeçalho, mas será ignorada na leitura.**
+    - **Exemplo de conteúdo válido:**
+    ```bash
+    Origem,Destino,Custo
+    GRU,BRC,10
+    BRC,SCL,5
+    GRU,CDG,75
+    ```
+    - **Salve o arquivo com o nome routes.txt no seguinte caminho:**
+    ```bash
+    C:\Users\User\Downloads\
+    ```
+    - **Agora o sistema conseguirá carregar e consultar as rotas!**
+
+### 🔍 O que acontece se o arquivo não existir?   
+Se o arquivo routes.txt não for encontrado, o sistema assumirá que não há rotas disponíveis e pedirá para que o usuário cadastre novas rotas.
+
+### ⚠️ Cuidados
+- **As rotas devem ser separadas por vírgulas (,) e não por outros caracteres como ; ou |.**
+- **O custo da rota deve ser um número inteiro válido, sem espaços ou caracteres especiais.**
+- **Caso uma linha do arquivo tenha formato incorreto, ela será ignorada e um erro será exibido no console.**
 
 ## ⚙️ Requisitos
 Para executar este projeto, certifique-se de ter os seguintes requisitos instalados:
