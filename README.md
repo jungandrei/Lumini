@@ -27,8 +27,8 @@ Este projeto é um sistema para gerenciar e calcular a melhor rota entre cidades
 
 1. **Clone o repositório**  
    ```sh
-   git clone https://github.com/seuusuario/nome-do-repositorio.git
-   cd nome-do-repositorio
+   git clone https://github.com/jungandrei/Lumini.git
+   cd Lumini
 
 2. **Compilar o projeto**
     ```sh
